@@ -1,0 +1,38 @@
+.navy {
+    background-color: #001B42;
+}
+
+.greyblue {
+    background-color: #334968;
+    border-color: #334968;
+}
+
+.container {
+    width: 100%;
+}
+
+.awhite {
+    color: #E7EAED;
+}
+
+.labelTitle {
+    font-size: 1.5rem;
+}
+
+.form-control {
+    border-radius: 0;
+}
+
+.ml-auto {
+    margin-left: auto;
+}
+
+	
+@media (max-width:768px) {
+    .col-md-6 {
+        padding-top: 1rem;
+    }
+    .pt-4 {
+        padding-top: 0!important;
+    }
+}
