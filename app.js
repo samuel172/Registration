@@ -1,7 +1,8 @@
 const app = Vue.createApp({
     data() {
         return {
-            moistTacos: 'dogs'
+            moistTacos: 'dogs',
+            awesome: true
         };
     }
 });
