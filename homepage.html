@@ -71,15 +71,29 @@
                 <label for="inputAddress2" class="form-label awhite">Want to invite some guests? You may bring up to two additional guests, simply click "add a guest".</label>
               </div>
               <div class="col-xl-2">
-                <button class="btn d-none d-lg-block ml-auto" type="submit" style="border-radius: 0; background-color: #FFFFFF; color: #001B42; font-size: 0.75rem; padding: 10px 30px;">Register Now</button>
+                <button @click="oneGuest" class="btn d-none d-lg-block ml-auto" type="button" style="border-radius: 0; background-color: #FFFFFF; color: #001B42; font-size: 0.75rem; padding: 10px 30px;">Register Now</button>
               </div>
             </div>
-            <div v-if="awesome" class="row justify-content-center pb-5">
-              <div class="col-xl-4">
-                <label for="inputAddress2" class="form-label awhite">Want to invite some guests? You may bring up to two additional guests, simply click "add a guest".</label>
+            <div v-if="extraGuests == 1">
+              <div class="row justify-content-center pt-4">
+                <div class="col-md-6 col-xl-3">
+                  <label for="inputEmail4" class="form-label awhite">First Name</label>
+                  <input type="email" class="form-control greyblue" id="inputEmail4">
+                </div>
+                <div class="col-md-6 col-xl-3">
+                  <label for="inputPassword4" class="form-label awhite">Surname</label>
+                  <input type="password" class="form-control greyblue" id="inputPassword4">
+                </div>
               </div>
-              <div class="col-xl-2">
-                <button class="btn d-none d-lg-block ml-auto" type="submit" style="border-radius: 0; background-color: #FFFFFF; color: #001B42; font-size: 0.75rem; padding: 10px 30px;">Register Now</button>
+              <div class="row justify-content-center pt-4">
+                <div class="col-md-6 col-xl-3">
+                  <label for="inputEmail4" class="form-label awhite">Email Address</label>
+                  <input type="email" class="form-control greyblue" id="inputEmail4">
+                </div>
+                <div class="col-md-6 col-xl-3">
+                  <label for="inputPassword4" class="form-label awhite">Mobile phone number</label>
+                  <input type="password" class="form-control greyblue" id="inputPassword4">
+                </div>
               </div>
             </div>
           </form>
