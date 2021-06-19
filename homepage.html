@@ -66,15 +66,20 @@
                 <input type="text" class="form-control greyblue" id="inputAddress2">
               </div>
             </div>
-            <div class="row justify-content-center pt-4 pb-5">
+            <div v-if="extraGuests == 0" class="row justify-content-center pt-4 pb-1">
               <div class="col-xl-4">
                 <label for="inputAddress2" class="form-label awhite">Want to invite some guests? You may bring up to two additional guests, simply click "add a guest".</label>
               </div>
-              <div class="col-xl-2">
-                <button @click="oneGuest" class="btn d-none d-lg-block ml-auto" type="button" style="border-radius: 0; background-color: #FFFFFF; color: #001B42; font-size: 0.75rem; padding: 10px 30px;">Register Now</button>
+              <div class="col-xl-2">  
+                <button @click="extraGuest" class="btn d-none d-lg-block ml-auto" type="button" style="border-radius: 0; background-color: #FFFFFF; color: #001B42; font-size: 0.75rem; padding: 10px 30px;">Add a guest</button>
               </div>
             </div>
-            <div v-if="extraGuests == 1">
+            <template v-if="extraGuests == 1 || extraGuests == 2">
+              <div class="row justify-content-center pt-3">
+                <div class="col-xl-6">
+                  <label for="" class="form-label awhite labelTitle">Guest 1</label><br>
+                </div>
+              </div>
               <div class="row justify-content-center pt-4">
                 <div class="col-md-6 col-xl-3">
                   <label for="inputEmail4" class="form-label awhite">First Name</label>
@@ -91,11 +96,48 @@
                   <input type="email" class="form-control greyblue" id="inputEmail4">
                 </div>
                 <div class="col-md-6 col-xl-3">
-                  <label for="inputPassword4" class="form-label awhite">Mobile phone number</label>
+                  <label for="inputPassword4" class="form-label awhite">Dietary Requirements</label>
                   <input type="password" class="form-control greyblue" id="inputPassword4">
                 </div>
               </div>
-            </div>
+              <div class="row justify-content-center pt-4 pb-1">
+                <div class="col-xl-2">  
+                  <button v-if="extraGuests == 1" @click="extraGuest" class="btn d-none d-lg-block" type="button" style="border-radius: 0; background-color: #FFFFFF; color: #001B42; font-size: 0.75rem; padding: 10px 30px;">Add another guest</button>
+                </div>
+              </div>
+            </template>
+            <template v-if="extraGuests == 2">
+              <div class="row justify-content-center pt-3">
+                <div class="col-xl-6">
+                  <label for="" class="form-label awhite labelTitle">Guest 2</label><br>
+                </div>
+              </div>
+              <div class="row justify-content-center pt-4">
+                <div class="col-md-6 col-xl-3">
+                  <label for="inputEmail4" class="form-label awhite">First Name</label>
+                  <input type="email" class="form-control greyblue" id="inputEmail4">
+                </div>
+                <div class="col-md-6 col-xl-3">
+                  <label for="inputPassword4" class="form-label awhite">Surname</label>
+                  <input type="password" class="form-control greyblue" id="inputPassword4">
+                </div>
+              </div>
+              <div class="row justify-content-center pt-4">
+                <div class="col-md-6 col-xl-3">
+                  <label for="inputEmail4" class="form-label awhite">Email Address</label>
+                  <input type="email" class="form-control greyblue" id="inputEmail4">
+                </div>
+                <div class="col-md-6 col-xl-3">
+                  <label for="inputPassword4" class="form-label awhite">Dietary Requirements</label>
+                  <input type="password" class="form-control greyblue" id="inputPassword4">
+                </div>
+              </div>
+              <div class="row justify-content-center pt-4 pb-1">
+                <div class="col-xl-2">  
+                  <button class="btn d-none d-lg-block" type="button" style="border-radius: 0; background-color: #FFFFFF; color: #001B42; font-size: 0.75rem; padding: 10px 30px;">Add another guest</button>
+                </div>
+              </div>
+            </template>
           </form>
         </div>
       </div>

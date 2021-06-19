@@ -7,12 +7,12 @@ const app = Vue.createApp({
         };
     },
     methods: {
-        oneGuest() {
-            extraGuests = 1;
-            prompt = false;
+        extraGuest() {
+            this.extraGuests += 1;
+            this.prompt = false;
             console.log('yes this worked');
-            console.log(extraGuests);
-            console.log(prompt);
+            console.log(this.extraGuests);
+            console.log(this.prompt);
         }
     }
 });
