@@ -16,7 +16,7 @@
         <![endif]-->
         <nav class="navbar navbar-light bg-white">
           <div class="container-fluid">
-              <img src="./images/AV_BMark_Hori_LR ƒ.jpg" alt="" width="auto" height="60" style="margin: 20px 0 20px 20px;">
+              <img src="./images/AV_BMark_Hori_LR ƒ.jpg" alt="" style="margin: 20px 0 20px 20px; height: 60px; width: auto;">
             <form class="d-flex">
               <button class="btn d-none d-lg-block" type="submit" style="margin-right: 30px; border-radius: 0; background-color: #D52B1E; color: #FFFFFF; font-size: 0.75rem; padding: 10px 30px">Register Now</button>
             </form>
@@ -33,7 +33,7 @@
               <h3>Register</h3>
             </div>
           </div> -->
-          <form class="row g-3 justify-content-center">
+          <form class="row g-3 justify-content-center" @submit="checkForm" action="https://vuejs.org/" method="POST">
             <div class="row justify-content-center">
               <div class="col-xl-6">
                 <label for="" class="form-label awhite labelTitle">Register</label><br>
@@ -42,28 +42,28 @@
             </div>
             <div class="row justify-content-center pt-4">
               <div class="col-md-6 col-xl-3">
-                <label for="inputEmail4" class="form-label awhite">First Name</label>
-                <input type="email" class="form-control greyblue" id="inputEmail4">
+                <label for="fName1" class="form-label awhite">First Name</label>
+                <input type="text" class="form-control greyblue" id="fName1">
               </div>
               <div class="col-md-6 col-xl-3">
-                <label for="inputPassword4" class="form-label awhite">Surname</label>
-                <input type="password" class="form-control greyblue" id="inputPassword4">
+                <label for="lName1" class="form-label awhite">Surname</label>
+                <input type="text" class="form-control greyblue" id="lName1">
               </div>
             </div>
             <div class="row justify-content-center pt-4">
               <div class="col-md-6 col-xl-3">
-                <label for="inputEmail4" class="form-label awhite">Email Address</label>
-                <input type="email" class="form-control greyblue" id="inputEmail4">
+                <label for="guestEmail1" class="form-label awhite">Email Address</label>
+                <input type="email" class="form-control greyblue" id="guestEmail1">
               </div>
               <div class="col-md-6 col-xl-3">
-                <label for="inputPassword4" class="form-label awhite">Mobile phone number</label>
-                <input type="password" class="form-control greyblue" id="inputPassword4">
+                <label for="guestPhone" class="form-label awhite">Mobile phone number</label>
+                <input type="number" class="form-control greyblue" id="guestPhone">
               </div>
             </div>
             <div class="row justify-content-center pt-3">
               <div class="col-xl-6">
-                <label for="inputAddress2" class="form-label awhite">Please list any allergies or dietary requirements that need to be considered.</label>
-                <input type="text" class="form-control greyblue" id="inputAddress2">
+                <label for="dietary1" class="form-label awhite">Please list any allergies or dietary requirements that need to be considered.</label>
+                <input type="text" class="form-control greyblue" id="dietary1">
               </div>
             </div>
             <div v-if="extraGuests == 0" class="row justify-content-center pt-4 pb-1">
@@ -82,26 +82,26 @@
               </div>
               <div class="row justify-content-center pt-4">
                 <div class="col-md-6 col-xl-3">
-                  <label for="inputEmail4" class="form-label awhite">First Name</label>
-                  <input type="email" class="form-control greyblue" id="inputEmail4">
+                  <label for="fName2" class="form-label awhite">First Name</label>
+                  <input type="text" class="form-control greyblue" id="fName2">
                 </div>
                 <div class="col-md-6 col-xl-3">
-                  <label for="inputPassword4" class="form-label awhite">Surname</label>
-                  <input type="password" class="form-control greyblue" id="inputPassword4">
+                  <label for="sName2" class="form-label awhite">Surname</label>
+                  <input type="text" class="form-control greyblue" id="sName2">
                 </div>
               </div>
               <div class="row justify-content-center pt-4">
                 <div class="col-md-6 col-xl-3">
-                  <label for="inputEmail4" class="form-label awhite">Email Address</label>
-                  <input type="email" class="form-control greyblue" id="inputEmail4">
+                  <label for="guestEmail2" class="form-label awhite">Email Address</label>
+                  <input type="email" class="form-control greyblue" id="guestEmail2">
                 </div>
                 <div class="col-md-6 col-xl-3">
-                  <label for="inputPassword4" class="form-label awhite">Dietary Requirements</label>
-                  <input type="password" class="form-control greyblue" id="inputPassword4">
+                  <label for="dietary2" class="form-label awhite">Dietary Requirements</label>
+                  <input type="text" class="form-control greyblue" id="dietary2">
                 </div>
               </div>
               <div class="row justify-content-center pt-4 pb-1">
-                <div class="col-xl-2">  
+                <div class="col-xl-6">  
                   <button v-if="extraGuests == 1" @click="extraGuest" class="btn d-none d-lg-block" type="button" style="border-radius: 0; background-color: #FFFFFF; color: #001B42; font-size: 0.75rem; padding: 10px 30px;">Add another guest</button>
                 </div>
               </div>
@@ -114,30 +114,37 @@
               </div>
               <div class="row justify-content-center pt-4">
                 <div class="col-md-6 col-xl-3">
-                  <label for="inputEmail4" class="form-label awhite">First Name</label>
-                  <input type="email" class="form-control greyblue" id="inputEmail4">
+                  <label for="fName3" class="form-label awhite">First Name</label>
+                  <input type="email" class="form-control greyblue" id="fName3">
                 </div>
                 <div class="col-md-6 col-xl-3">
-                  <label for="inputPassword4" class="form-label awhite">Surname</label>
-                  <input type="password" class="form-control greyblue" id="inputPassword4">
+                  <label for="sName3" class="form-label awhite">Surname</label>
+                  <input type="password" class="form-control greyblue" id="sName3">
                 </div>
               </div>
               <div class="row justify-content-center pt-4">
                 <div class="col-md-6 col-xl-3">
-                  <label for="inputEmail4" class="form-label awhite">Email Address</label>
-                  <input type="email" class="form-control greyblue" id="inputEmail4">
+                  <label for="guestEmail3" class="form-label awhite">Email Address</label>
+                  <input type="email" class="form-control greyblue" id="guestEmail3">
                 </div>
                 <div class="col-md-6 col-xl-3">
-                  <label for="inputPassword4" class="form-label awhite">Dietary Requirements</label>
-                  <input type="password" class="form-control greyblue" id="inputPassword4">
-                </div>
-              </div>
-              <div class="row justify-content-center pt-4 pb-1">
-                <div class="col-xl-2">  
-                  <button class="btn d-none d-lg-block" type="button" style="border-radius: 0; background-color: #FFFFFF; color: #001B42; font-size: 0.75rem; padding: 10px 30px;">Add another guest</button>
+                  <label for="dietary3" class="form-label awhite">Dietary Requirements</label>
+                  <input type="password" class="form-control greyblue" id="dietary3">
                 </div>
               </div>
             </template>
+            <div>
+              <div class="row justify-content-center pt-2 pb-1">
+                <div class="col-xl-6">
+                  <label for="inputAddress2" class="form-label awhite">To complete your registration please press submit.</label>
+                </div>
+              </div>
+              <div class="row justify-content-center pt-1 pb-1">
+                <div class="col-xl-6">  
+                  <button class="btn d-none d-lg-block" type="submit" style="border-radius: 0; background-color: #FFFFFF; color: #001B42; font-size: 0.75rem; padding: 10px 30px;">Submit</button>
+                </div>
+              </div>
+            </div>
           </form>
         </div>
       </div>
