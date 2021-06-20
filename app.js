@@ -24,7 +24,25 @@ const app = Vue.createApp({
         extraGuest() {
             this.extraGuests += 1;
             this.prompt = false;
-        }
+        },
+        checkForm(e) {
+            if (this.fName1 && this.sName1 && this.guestEmail1 && this.guestPhone) {
+              return true;
+            }
+      
+            this.errors = [];
+      
+            if (!this.fName1) {
+              this.errors.push('Name required.');
+            }
+            if (!this.sName1) {
+              this.errors.push('Age required.');
+            }
+            
+            console.log(this.errors);
+            console.log('fName1 is ' + this.fName1);
+            e.preventDefault();
+          }
     }
 });
 
