@@ -26,9 +26,6 @@ const app = Vue.createApp({
             this.prompt = false;
         },
         checkForm(e) {
-            if (this.fName1 && this.sName1 && this.guestEmail1 && this.guestPhone) {
-              return true;
-            }
       
             this.errors = [];
       
@@ -38,10 +35,26 @@ const app = Vue.createApp({
             if (!this.sName1) {
               this.errors.push('Age required.');
             }
+            if (!this.guestPhone) {
+              this.errors.push('Phone Number Required');
+            }
+            if (!this.guestEmail1) {
+              this.errors.push('Email Required');
+            } else if (!this.validEmail(this.guestEmail1)) {
+              this.errors.push('Valid Email Required');
+            }
             
             console.log(this.errors);
             console.log('fName1 is ' + this.fName1);
+
+            if (!this.errors.length) 
+              return true;
+
             e.preventDefault();
+          },
+          validEmail(guestEmail1) {
+            var re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+            return re.test(guestEmail1);
           }
     }
 });

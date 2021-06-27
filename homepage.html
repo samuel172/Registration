@@ -33,11 +33,17 @@
               <h3>Register</h3>
             </div>
           </div> -->
-          <form class="row g-3 justify-content-center" @submit="checkForm" action="https://vuejs.org/" method="POST">
+          <form class="row g-3 justify-content-center" @submit="checkForm" action="https://vuejs.org/" method="POST" novalidate="true">
             <div class="row justify-content-center">
               <div class="col-xl-6">
                 <label for="" class="form-label awhite labelTitle">Register</label><br>
                 <label for="" class="form-label awhite">Please confirm your attendance by completing the form below.</label>
+                <!-- <p class="awhite" v-if="errors.length">
+                  <b>Please correct the following error(s):</b>
+                  <ul>
+                    <li class="awhite" v-for="error in errors">{{ error }}</li>
+                  </ul>
+                </p> -->
               </div>
             </div>
             <div class="row justify-content-center pt-4">
@@ -50,6 +56,15 @@
                 <input type="text" class="form-control greyblue" id="sName1" name="sName1" v-model="sName1">
               </div>
             </div>
+            <div v-if="errors.length" class="row">
+              <div v-if="!fName1 && !sName1" class="offset-xl-3 col-xl-3">
+                <label for="" class="form-label text-danger">Please enter a first name.</label>
+                <label for="" class="form-label text-danger offset-xl-6 position-absolute">Please enter a surname.</label>
+              </div>
+              <!-- <div v-if="!sName1 && fName1" class="col-xl-6 offset-xl-6">
+                <label for="" class="form-label text-danger">Please enter a surname.</label>
+              </div> -->
+            </div>
             <div class="row justify-content-center pt-4">
               <div class="col-md-6 col-xl-3">
                 <label for="guestEmail1" class="form-label awhite">Email Address</label>
@@ -58,6 +73,17 @@
               <div class="col-md-6 col-xl-3">
                 <label for="guestPhone" class="form-label awhite">Mobile phone number</label>
                 <input type="number" class="form-control greyblue" id="guestPhone" name="guestPhone" v-model="guestPhone">
+              </div>
+            </div>
+            <div v-if="errors.length" class="row justify-content-center">
+              <div v-if="!guestEmail1" class="col-xl-6">
+                <label for="" class="form-label text-danger">Please enter an email address.</label>
+              </div>
+              <div v-if="!validEmail()" class="col-xl-6">
+                <label for="" class="form-label text-danger">Please enter a valid email address.</label>
+              </div>
+              <div v-if="!guestPhone" class="col-xl-6 offset-xl-6">
+                <label for="" class="form-label text-danger">Please enter a phone number.</label>
               </div>
             </div>
             <div class="row justify-content-center pt-3">
